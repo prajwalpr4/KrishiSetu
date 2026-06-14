@@ -56,7 +56,7 @@ const sampleProducts = [
   { id: '38', name: 'Groundnut Seeds (TMV-2)', category: 'seed', mrp: 110, unit: '/kg', amazon_query: 'groundnut seeds tmv 2', flipkart_query: 'groundnut seeds', tags: ['oilseeds', 'kharif'], subsidy: false, image_url: 'https://placehold.co/400x300/ca8a04/ffffff?text=Groundnut+Seeds' },
   { id: '39', name: 'Mulching Sheet (30 Micron)', category: 'tool', mrp: 2100, unit: '/400m roll', amazon_query: 'agriculture mulching paper sheet 30 micron', flipkart_query: 'mulching paper roll', tags: ['weed-control', 'moisture-retention'], subsidy: true, image_url: 'https://placehold.co/400x300/1e3a8a/ffffff?text=Mulching+Sheet' },
   { id: '40', name: 'Mini Tractor (15HP)', category: 'machinery', mrp: 280000, unit: '/unit', amazon_query: 'mini tractor 15hp agriculture', flipkart_query: 'mini tractor', tags: ['tractor', 'compact'], subsidy: true, image_url: 'https://placehold.co/400x300/334155/ffffff?text=Mini+Tractor' },
-];
+].map(p => ({ ...p, image_url: `/images/marketplace/${p.id}.jpg` }));
 
 export default function MarketplacePage() {
   const { language } = useAppStore();
@@ -107,10 +107,10 @@ export default function MarketplacePage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.map((product) => (
           <motion.div key={product.id} whileHover={{ y: -3 }} className="card-krishisetu overflow-hidden">
-            <div className="h-32 bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center overflow-hidden">
+            <div className="h-40 bg-white flex items-center justify-center overflow-hidden p-3 border-b border-gray-100">
               {product.image_url ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={product.image_url} alt={product.name} className="w-full h-full object-cover" />
+                <img src={product.image_url} alt={product.name} className="w-full h-full object-contain mix-blend-multiply" />
               ) : (
                 <ShoppingBag className="w-12 h-12 text-primary/30" />
               )}
