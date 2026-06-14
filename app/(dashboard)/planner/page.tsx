@@ -66,8 +66,13 @@ export default function PlannerPage() {
         setPlans([data.plan, ...plans]);
         setShowForm(false);
         setNewPlan({ crop_name: '', variety: '', field_name: '', area_acres: '', season: 'kharif', sowing_date: '' });
+      } else {
+        alert(data.error || 'Failed to add plan');
       }
-    } catch (e) { console.error(e); }
+    } catch (e: any) { 
+      console.error(e);
+      alert(e.message);
+    }
   };
 
   const getProgress = (plan: LocalPlan) => {

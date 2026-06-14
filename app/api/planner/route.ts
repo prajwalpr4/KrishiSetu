@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createClient, createServiceClient } from '@/lib/supabase/server';
 
 export async function GET(request: NextRequest) {
   try {
@@ -16,7 +16,8 @@ export async function GET(request: NextRequest) {
 
     if (!profile) return NextResponse.json({ error: 'Profile not found' }, { status: 404 });
 
-    const { data: plans, error: plansError } = await supabase
+    const serviceClient = await createServiceClient();
+    const { data: plans, error: plansError } = await serviceClient
       .from('crop_plans')
       .select('*')
       .eq('farmer_id', profile.id)
@@ -51,7 +52,8 @@ export async function POST(request: NextRequest) {
 
     if (action === 'add_plan') {
       const { crop_name, variety, field_name, area_acres, season, sowing_date, expected_harvest_date } = body;
-      const { data, error } = await supabase
+      const serviceClient = await createServiceClient();
+      const { data, error } = await serviceClient
         .from('crop_plans')
         .insert({
           farmer_id: profile.id,

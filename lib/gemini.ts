@@ -134,7 +134,7 @@ export async function analyzeCropDisease(
   try {
     const client = getClient();
     const model = client.getGenerativeModel({
-      model: 'gemini-pro',
+      model: 'gemini-flash-latest',
       safetySettings,
       generationConfig: {
         temperature: 0.3,
@@ -202,20 +202,17 @@ If the plant appears healthy, set is_healthy to true, severity to "low", and dis
     
     // ULTIMATE FALLBACK: If the API key is completely invalid, return a mock response so the UI doesn't break
     return {
-      disease: "Simulated Diagnosis (API Key Invalid)",
+      disease: "API Key Invalid or Missing",
+      severity: "high",
+      confidence_percent: 0,
       description: "This is an automated fallback response. Your Gemini API key is either invalid, missing, or lacks access to the required vision model. Please generate a fresh key from Google AI Studio.",
-      remedy: [
-        "1. Go to aistudio.google.com/app/apikey",
-        "2. Generate a new API Key",
-        "3. Paste it into your .env.local file",
-        "4. Restart the server"
+      organic_remedy: "1. Go to aistudio.google.com/app/apikey\n2. Generate a new API Key\n3. Paste it into your .env.local file as GEMINI_API_KEY\n4. Restart the server",
+      chemical_treatment: [
+        { product: "Provide a valid Gemini API Key", dose: "1 Key", frequency: "Once" }
       ],
-      prevention: [
-        "Ensure your API key is active.",
-        "Ensure you have billing enabled if you are using an enterprise Cloud account."
-      ],
-      confidenceScore: 0
-    };
+      prevention: "Ensure your API key is active and correctly placed in .env.local.",
+      is_healthy: false
+    } as DiagnosisResult;
   }
 }
 
