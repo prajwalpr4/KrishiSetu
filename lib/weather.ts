@@ -16,7 +16,9 @@ export async function fetchWeather(lat: number, lng: number): Promise<WeatherDat
     forecast_days: '7',
   });
 
-  const response = await fetch(`${OPEN_METEO_BASE}?${params.toString()}`);
+  const response = await fetch(`${OPEN_METEO_BASE}?${params.toString()}`, {
+    cache: 'no-store',
+  });
 
   if (!response.ok) {
     throw new Error(`Weather API error: ${response.status}`);

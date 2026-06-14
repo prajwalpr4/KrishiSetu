@@ -67,11 +67,19 @@ export default function DashboardPage() {
         }
 
         // Fetch weather
-        const weatherRes = await fetch(`/api/weather?lat=${lat}&lng=${lng}`);
-        if (weatherRes.ok) {
-          const data = await weatherRes.json();
-          setWeather(data);
-        }
+        const fetchWeather = async (latitude: number, longitude: number) => {
+          try {
+            const weatherRes = await fetch(`/api/weather?lat=${latitude}&lng=${longitude}`);
+            if (weatherRes.ok) {
+              const data = await weatherRes.json();
+              setWeather(data);
+            }
+          } catch (e) {
+            console.error('Weather load error:', e);
+          }
+        };
+
+        await fetchWeather(lat, lng);
 
         // Fetch featured mandi prices (filter if state exists)
         let mandiUrl = '/api/mandi?featured=true';
@@ -83,13 +91,26 @@ export default function DashboardPage() {
           const data = await mandiRes.json();
           setMandiPrices(data.prices || []);
         }
+
+        // Setup interval for live weather
+        const intervalId = setInterval(() => fetchWeather(lat, lng), 5 * 60 * 1000);
+        // Save intervalId to be cleared
+        return intervalId;
       } catch (err) {
         console.error('Dashboard data load error:', err);
       } finally {
         setLoading(false);
       }
     }
-    loadData();
+    
+    let interval: NodeJS.Timeout;
+    loadData().then(id => {
+      if (id) interval = id as NodeJS.Timeout;
+    });
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, []);
 
   const greeting = getGreeting(language);
