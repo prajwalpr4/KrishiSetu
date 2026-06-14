@@ -197,5 +197,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 <div align="center">
   <i>Built with ❤️ for the farmers of India.</i>
   <br/>
-  <b>Project developed by Prajwal P Raikar</b>
+  <b>Developed by Prajwal P Raikar</b>
 </div>
