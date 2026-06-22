@@ -134,7 +134,7 @@ export async function analyzeCropDisease(
   try {
     const client = getClient();
     const model = client.getGenerativeModel({
-      model: 'gemini-flash-latest',
+      model: 'gemini-1.5-flash',
       safetySettings,
       generationConfig: {
         temperature: 0.3,
