@@ -1,16 +1,26 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/leaf.svg" alt="KrishiSetu Logo" width="80" height="80">
+  <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/leaf.svg" alt="KrishiSetu Logo" width="100" height="100">
   <br/>
   <h1>🌾 KrishiSetu (कृषि सेतु)</h1>
   <p><strong>Your Intelligent AI Farming Partner</strong></p>
-  <p>Empowering Indian farmers with real-time data, cutting-edge AI diagnostics powered by Grok, and multilingual support.</p>
+  
+  <p>
+    <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js"></a>
+    <a href="https://supabase.com/"><img src="https://img.shields.io/badge/Supabase-Database-3ECF8E?style=for-the-badge&logo=supabase" alt="Supabase"></a>
+    <a href="https://groq.com/"><img src="https://img.shields.io/badge/Groq-LPU_Inference-f55036?style=for-the-badge" alt="Groq"></a>
+    <a href="https://deepmind.google/technologies/gemini/"><img src="https://img.shields.io/badge/Google_Gemini-AI-4285F4?style=for-the-badge&logo=google" alt="Gemini"></a>
+    <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css" alt="TailwindCSS"></a>
+    <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript" alt="TypeScript"></a>
+  </p>
+
+  <p>Empowering Indian farmers with real-time data, cutting-edge AI diagnostics powered by Groq & Gemini, and multilingual support.</p>
 
   <p align="center">
     <a href="#-overview">Overview</a> •
+    <a href="#-architecture">Architecture</a> •
     <a href="#-key-features">Features</a> •
     <a href="#-tech-stack">Tech Stack</a> •
-    <a href="#-getting-started">Getting Started</a> •
-    <a href="#-project-structure">Project Structure</a>
+    <a href="#-getting-started">Getting Started</a>
   </p>
 </div>
 
@@ -18,71 +28,58 @@
 
 ## 📖 Overview
 
-**KrishiSetu** (meaning "Farming Bridge") is a comprehensive, mobile-first web application designed specifically for Indian farmers. It leverages artificial intelligence—specifically utilizing **Grok AI** for enhanced logic and reasoning—to provide actionable insights, crop disease diagnostics, live market prices, and personalized farming schedules. 
+**KrishiSetu** (meaning "Farming Bridge") is an enterprise-grade, mobile-first web application designed specifically for Indian farmers. It leverages dual artificial intelligence models—**Groq** for lightning-fast multilingual reasoning and **Google Gemini** for multimodal computer vision—to provide actionable insights, crop disease diagnostics, live market prices, and personalized farming schedules. 
 
-Built with modern web technologies, KrishiSetu delivers a highly responsive, native-app-like experience on budget Android devices even under slow network conditions.
+Built with modern web technologies, KrishiSetu delivers a native-app-like experience that works flawlessly on budget smartphones, even under low-bandwidth rural networks.
+
+---
+
+## 🏛️ Architecture
+
+KrishiSetu relies on a modern, decoupled architecture connecting a Next.js App Router client with Supabase for data persistence and external AI APIs for intelligent inference.
+
+<div align="center">
+  <img src="./public/architecture.png" alt="KrishiSetu Architecture Diagram" width="100%" />
+  <br/>
+  <i>KrishiSetu High-Level System Architecture</i>
+</div>
 
 ---
 
 ## ✨ Key Features
 
-- 🤖 **KisanSarthi AI Chat (WhatsApp Style)**
-  - Ask farming questions in English, Hindi, Kannada, Telugu, Tamil, or Marathi.
-  - Voice dictation and Text-to-Speech support for high accessibility.
-  - Context-aware responses powered by state-of-the-art AI, including **Grok** and Google Gemini.
+### 🤖 Multilingual AI Intelligence
+- **Krishi Chatbot (Powered by Groq)**: Blazing fast, context-aware chatbot supporting English, Hindi, Kannada, Telugu, Tamil, and Marathi. Includes voice dictation and TTS.
+- **AI Crop Doctor (Powered by Gemini)**: Upload photos of diseased crops directly from the mobile camera. Instantly receive accurate diagnostics and organic/chemical treatment recommendations.
 
-- 🔬 **AI Crop Doctor**
-  - Upload photos of diseased crops directly from your mobile camera.
-  - Instantly receive accurate AI diagnostics, identify causes, and get actionable, organic, and chemical treatment recommendations.
+### 📈 Smart Farming Tools
+- **Live Mandi Prices**: Real-time and historical market prices across Indian states with visual trend graphs.
+- **Smart Crop Planner**: Track fields, calculate harvest dates, and get a dynamic timeline for plowing, sowing, watering, and harvesting.
+- **JalSathi (Smart Irrigation)**: Advisory on when to run pumps based on localized weather, soil moisture, and rain forecasts.
 
-- 📊 **Live Mandi Prices**
-  - Real-time and historical market prices across various Indian states and commodities.
-  - Visual trends with interactive area graphs to help farmers decide the best time to sell.
+### 🚜 Farm Management
+- **Krishi Marketplace**: P2P platform for buying/selling crops, seeds, and equipment without middlemen.
+- **Digital Majdoor (Labor Management)**: Manage farm laborers, track attendance, and log daily wages and advances seamlessly.
+- **Inventory Tracking**: Manage stock levels for seeds, fertilizers, and pesticides with low-stock alerts.
+- **Government Schemes Explorer**: Discover eligible agricultural schemes (PM-KISAN, etc.) with step-by-step guides.
 
-- 📋 **Government Schemes Explorer**
-  - Easily discover eligible agricultural schemes (like PM-KISAN, Fasal Bima Yojana).
-  - Simple step-by-step application guidance, eligibility criteria, and required documents.
-
-- 📅 **Smart Crop Planner**
-  - Track your fields and calculate estimated harvest dates.
-  - Get a dynamic timeline of tasks (plowing, sowing, watering, harvesting).
-
-- ⛅ **Localized Weather & Jalsathi**
-  - Current localized weather conditions and accurate short-term forecasts.
-  - **Jalsathi**: Smart irrigation planner that advises when to run pumps based on soil moisture and upcoming rain, saving water and diesel.
-
-- 🛒 **Krishi Marketplace**
-  - Direct peer-to-peer platform for buying and selling crops, seeds, fertilizers, and equipment.
-  - Filter by category, price, and exact location without any middlemen.
-
-- 📦 **Inventory Management**
-  - Track stock levels for seeds, fertilizers, pesticides, and farming equipment.
-  - Automatic calculation of total inventory value with smart low-stock alerts.
-
-- 👷 **Digital Majdoor (Labor Management)**
-  - Manage farm laborers, track attendance, and log daily wages seamlessly.
-  - Record and monitor advance payments to avoid disputes and maintain clear records.
-
-- 🔐 **Secure Auth & Personalized Onboarding**
-  - Email/Password authentication powered by Supabase.
-  - Comprehensive onboarding capturing farm size, primary crops, and exact GPS location for highly customized insights.
-
-- 📱 **100% Mobile Optimized Experience**
-  - Built explicitly for 320px–430px screens commonly used in rural areas.
-  - Large touch targets, horizontal scroll chips, and intuitive bottom-sheet navigation.
-  - "Offline-aware" capability with automatic reconnection banners.
+### 📱 100% Mobile Optimized Experience
+- Built explicitly for 320px–430px screens commonly used in rural areas.
+- "Offline-aware" capability with automatic reconnection banners.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & Framer Motion
-- **Database & Auth**: [Supabase](https://supabase.com/) (PostgreSQL + RLS Policies)
-- **AI Engine**: **Grok API** (xAI) & Google Gemini Pro
-- **Icons & Charts**: Lucide React & Recharts
-- **Mapping**: Leaflet & OpenStreetMap API
+| Category | Technologies |
+| --- | --- |
+| **Frontend Framework** | [Next.js 14](https://nextjs.org/) (App Router), React 18 |
+| **Language** | [TypeScript](https://www.typescriptlang.org/) |
+| **Styling & UI** | [Tailwind CSS](https://tailwindcss.com/), Framer Motion, shadcn/ui |
+| **Database & Auth** | [Supabase](https://supabase.com/) (PostgreSQL + RLS Policies, Storage) |
+| **AI Inference Engine** | **Groq API** (LPU for fast text) & **Google Gemini API** (Multimodal vision) |
+| **Icons & Data Viz** | Lucide React, Recharts, Leaflet (Maps) |
+| **Deployment & Analytics**| Vercel, Vercel Analytics |
 
 ---
 
@@ -91,7 +88,7 @@ Built with modern web technologies, KrishiSetu delivers a highly responsive, nat
 ### Prerequisites
 - Node.js 18.x or later
 - Supabase Account & Project
-- Grok API Key / Google Gemini API Key
+- Groq API Key & Google Gemini API Key
 
 ### 1. Clone the repository
 ```bash
@@ -107,38 +104,33 @@ yarn install
 ```
 
 ### 3. Setup Environment Variables
-Create a `.env.local` file in the root directory and add the following keys:
+Create a `.env.local` file in the root directory:
 
 ```env
 # Next.js App URL
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 
-# Supabase Keys (Find these in your Supabase Project Settings -> API)
+# Supabase Keys
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
 # AI API Keys
-GROK_API_KEY=your_grok_api_key
+GROQ_API_KEY=your_groq_api_key
 GEMINI_API_KEY=your_gemini_api_key
 
-# Govt Data API (Optional: For live Mandi Prices from data.gov.in)
+# Govt Data API (Optional)
 DATA_GOV_API_KEY=your_data_gov_api_key
 ```
 
 ### 4. Setup Database schema
-Navigate to your Supabase SQL Editor and run the schema definitions found in:
-`supabase/schema.sql`
-
-This will create all necessary tables (`farmer_profiles`, `crop_plans`, `inventory`, `majdoor_logs`) and setup Row Level Security (RLS) policies.
+Navigate to your Supabase SQL Editor and run `supabase/schema.sql`.
 
 ### 5. Run the Development Server
 ```bash
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser. 
-
-> **Tip:** For the best testing experience, use your browser's Developer Tools to view the app in a mobile viewport (e.g., iPhone SE or Pixel 5).
 
 ---
 
@@ -150,38 +142,19 @@ krishisetu/
 │   ├── (auth)/           # Login & Signup flows
 │   ├── (dashboard)/      # Protected dashboard routes (Chat, Mandi, Planner, etc.)
 │   ├── api/              # Backend API routes (Chat, Profile, Scrapers)
-│   ├── globals.css       # Core styling & mobile utility classes
-│   └── layout.tsx        # Root layout & PWA meta tags
+│   └── globals.css       # Core styling & mobile utility classes
 ├── components/           # Reusable UI Components
 │   ├── home/             # Landing page sections
 │   ├── layout/           # Header, Sidebar, and mobile BottomNav
-│   ├── onboarding/       # Multi-step profile setup
 │   └── ui/               # Base components (Loaders, OfflineBanner)
 ├── lib/                  # Utilities (Supabase client, AI APIs, Voice processing)
-├── public/               # Static assets (icons, splash screens)
+├── public/               # Static assets (icons, splash screens, architecture diagram)
 ├── stores/               # Zustand state management
-├── supabase/             # SQL schemas & DB migrations
-└── types/                # TypeScript interface definitions
+└── supabase/             # SQL schemas & DB migrations
 ```
 
 ---
 
-## 🎨 Design System
-
-KrishiSetu utilizes a nature-inspired design system meant to evoke trust and growth:
-- **Primary Green**: `#166534` (Brand color)
-- **Light Green Background**: `#f0fdf4`
-- **Text Body**: `#4b5563`
-- **Typography**: `Poppins` (Weights: 300 to 800)
-- **Borders**: Highly rounded corners (`rounded-2xl` & `rounded-xl`) for a friendly, modern feel.
-
-
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
 <div align="center">
   <i>Built with ❤️ for the farmers of India.</i>
   <br/>
